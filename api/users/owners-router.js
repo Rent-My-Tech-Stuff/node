@@ -59,4 +59,18 @@ router.put('/item/:id', validateItemId, verifyEditItem, (req, res) => {
       })
 })
 
+//deletes an owners item
+
+router.delete('/item/:id', validateItemId, async (req, res) => {
+    try{
+        await OwnerItem.removeItem(req.params.id)
+        res.status(200).json(res.item)
+    } catch(err) {
+        res.status(500).json({
+            message: `Server error: ${err.message}`
+        })
+    }
+
+})
+
 module.exports = router
