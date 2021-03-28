@@ -35,4 +35,16 @@ router.get('/item/:id', validateItemId, (req, res) => {
     res.status(200).json(res.item)
 })
 
+router.post('/item', verifyItemReq, validateOwnerId, (req, res) => {
+    OwnerItem.addItem(req.body)
+      .then(item => {
+          res.status(201).json(item)
+      })
+      .catch(err => {
+          res.status(500).json({
+              message: `Server error: ${err.message}`
+          })
+      })
+})
+
 module.exports = router
