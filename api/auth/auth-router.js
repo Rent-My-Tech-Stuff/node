@@ -41,7 +41,8 @@ router.post('/login', verifyLoginReq, (req, res) => {
                   const token = makeToken(user)
                   const userInfo = {
                       user_id: user.user_id,
-                      username: user.username
+                      username: user.username,
+                      role: user.role
                   }
                   res.status(200).json({
                       user: userInfo, token: token

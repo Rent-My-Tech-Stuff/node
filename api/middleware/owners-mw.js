@@ -2,7 +2,7 @@ const User = require('../users/users-model')
 
 //checks to make sure only owners have access and not renters
 function checkIfOwner(req, res, next) {
-    if(req.jwt && req.jwt.role === 'owner') {
+    if(req.decodedToken && req.decodedToken.role === 'owner') {
         next()
     } else {
         res.status(403).json({

@@ -62,7 +62,8 @@ async function isUserInDb(req, res, next) {
 function makeToken(user) {
     const payload = {
         subject: user.user_id,
-        username: user.username
+        username: user.username,
+        role: user.role
     }
     const options = {
         expiresIn: '1d'
