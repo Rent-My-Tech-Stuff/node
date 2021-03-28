@@ -83,7 +83,7 @@ Returns:
 
 ### GET /api/
 - Get all Items that are listed for rent
-
+---
 Returns and array of item objects:
 [
     {
@@ -137,7 +137,7 @@ Required Fields:
     "description": "Description", (300 characters max)
     "user_id": 6 (integer)
 }
-
+---
 Returns New Item Object with item_id included.
 
 ### PUT /api/owners/item/:id
@@ -151,7 +151,7 @@ Required Fields:
     "rental_period": "Number of Days", 
     "description": "Description", (300 characters max)
 }
-
+---
 Returns Updated Item Object with both item_id and user_id
 
 ### DELETE /api/owners/item/:id
