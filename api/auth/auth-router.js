@@ -68,6 +68,8 @@ router.post('/login', verifyLoginReq, (req, res) => {
     }
 })
 
+//gets all items for renters 
+//had to put here because the renters routr had too many gets and they weren't working
 router.get('/', restricted ,checkIfRenter, (req, res) => {
     Renter.findAllItems()
       .then(items => {
