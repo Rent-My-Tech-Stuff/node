@@ -8,9 +8,10 @@ const { checkIfRenter } = require('../middleware/renters-mw')
 const router = express.Router()
 
 router.use(restricted)
+router.use(checkIfRenter)
 
 //gets item by the item id
-router.get('/:id', checkIfRenter, validateItemId, (req, res) => {
+router.get('/:id', validateItemId, (req, res) => {
     res.status(200).json(res.item)
 })
 
