@@ -1,12 +1,15 @@
 const express = require('express')
 const bcryptjs = require('bcryptjs')
 const User = require('../users/users-model')
+const Renter = require('../users/users-model')
 const { 
     validate,
     verifyLoginReq,
     isUserInDb,
-    makeToken
+    makeToken,
+    restricted
 } = require('../middleware/auth-mw')
+const { checkIfRenter } = require('../middleware/renters-mw')
 
 const router = express.Router()
 
@@ -63,6 +66,18 @@ router.post('/login', verifyLoginReq, (req, res) => {
             message: 'Please provide username and password and the password must be alphanumeric.'
         })
     }
+})
+
+router.get('/', restricted ,checkIfRenter, (req, res) => {
+    Renter.findAllItems()
+      .then(items => {
+          res.status(200).json(items)
+      })
+      .catch(err => {
+          res.status(500).json({
+              message: `Server error: ${err.message}`
+          })
+      })
 })
 
 module.exports = router
