@@ -47,4 +47,16 @@ router.post('/item', verifyItemReq, validateOwnerId, (req, res) => {
       })
 })
 
+router.put('/item/:id', validateItemId, verifyEditItem, (req, res) => {
+    OwnerItem.editItem(req.params.id, req.body)
+      .then(item => {
+          res.status(200).json(item)
+      })
+      .catch(err => {
+          res.status(500).json({
+              message: `Server error: ${err.message}`
+          })
+      })
+})
+
 module.exports = router

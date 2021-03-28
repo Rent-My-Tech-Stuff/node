@@ -25,7 +25,7 @@ async function addItem(item) {
 
 async function editItem(itemId, changes) {
     const [id] = await db('items').where('item_id', itemId).update(changes, 'item_id')
-    return getItemByItemId
+    return getItemByItemId(id)
 }
 
 function removeItem(id) {
