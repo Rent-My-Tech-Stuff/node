@@ -43,7 +43,7 @@ function verifyLoginReq(req, res, next) {
 
 async function isUserInDb(req, res, next) {
     try{
-        const rows = await User.find({username: req.body.username})
+        const rows = await User.findUserBy({username: req.body.username})
         if(!rows.length) {
             next()
         } else {
@@ -58,9 +58,22 @@ async function isUserInDb(req, res, next) {
     }
 }
 
+//makes the token that is necessary for users to have access
+function makeToken(user) {
+    const payload = {
+        subject: user.user_id,
+        username: user.username
+    }
+    const options = {
+        expiresIn: '1d'
+    }
+    return jwt.sign(payload, jwtSecret, options)
+}
+
 module.exports = {
     restricted,
     validate,
     verifyLoginReq,
-    isUserInDb
+    isUserInDb,
+    makeToken
 }
