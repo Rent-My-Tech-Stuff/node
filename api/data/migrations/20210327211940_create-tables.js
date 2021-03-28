@@ -18,7 +18,7 @@ exports.up = async (knex) => {
         tbl.string('name', 128).notNullable()
         tbl.string('category', 128).notNullable()
         tbl.string('price_per_day').notNullable()
-        tbl.integer('rental_period').notNullable()
+        tbl.string('rental_period').notNullable()
         tbl.string('description', 300).notNullable()
         tbl.integer('user_id')
             .notNullable()

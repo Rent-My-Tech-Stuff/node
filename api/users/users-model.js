@@ -17,7 +17,8 @@ function findById(id) {
     return db('users')
         .where('user_id', id)
         .select('user_id', 'username', 'firstname', 
-        'lastname', 'email', 'role')
+        'lastname', 'email', 'streetAddress', 'city', 
+        'state', 'zipcode', 'role')
         .first()
 }
 
