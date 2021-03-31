@@ -45,7 +45,7 @@ router.post('/login', verifyLoginReq, (req, res) => {
                   const userInfo = {
                       user_id: user.user_id,
                       username: user.username,
-                      fistname: user.firsstname,
+                      fistname: user.firstname,
                       lastname: user.lastname,
                       email: user.email,
                       streetAddress: user.streetAddress,
