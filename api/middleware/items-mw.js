@@ -55,6 +55,7 @@ function verifyEditItem(req, res, next) {
     }
 }
 
+//checks to make sure an item with that id exists
 function validateItemId(req, res, next) {
     Item.getItemByItemId(req.params.id)
       .then(item => {
