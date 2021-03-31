@@ -45,6 +45,13 @@ router.post('/login', verifyLoginReq, (req, res) => {
                   const userInfo = {
                       user_id: user.user_id,
                       username: user.username,
+                      fistname: user.firsstname,
+                      lastname: user.lastname,
+                      email: user.email,
+                      streetAddress: user.streetAddress,
+                      city: user.city,
+                      state: user.state,
+                      zipcode: user.zipcode,
                       role: user.role
                   }
                   res.status(200).json({

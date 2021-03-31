@@ -63,6 +63,13 @@ function makeToken(user) {
     const payload = {
         subject: user.user_id,
         username: user.username,
+        fistname: user.firsstname,
+        lastname: user.lastname,
+        email: user.email,
+        streetAddress: user.streetAddress,
+        city: user.city,
+        state: user.state,
+        zipcode: user.zipcode,
         role: user.role
     }
     const options = {

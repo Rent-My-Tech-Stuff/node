@@ -68,6 +68,11 @@ Returns:
      "user": {
              "user_id: 1,
              "username": "UniqueUsername",
+             "email": "email@email.com",
+             "streetAddress": "12345 Street Name", 
+             "city": "City", 
+             "state": "State", 
+             "zipcode": "12345", 
              "role": "owner or renter"
         },
         "token": "Authentication Token"
@@ -109,7 +114,26 @@ Requires:
 replace $nameORcategory and $cityORstateORzipcode with desired search 
 -- Make sure to keep the && operator
 
-Returns and Array of Items that contain the desired search input
+Returns an Array of Items that contain the desired search input:
+[
+    {
+        "item_id": 1,
+        "name": "Item Name",
+        "category": "Category",
+        "price_per_day": "123",
+        "rental_period": "Number of Days",
+        "description": "Description of Item",
+        "username": "UniqueUsername",
+        "email": "email@email.com",
+        "firstname": "FirstName",
+        "lastname": "LastName",
+        "streetAddress": "12345 Street Name",
+        "city": "City",
+        "state": "State",
+        "zipcode": "12345",
+        "user_id": 1
+    },
+]
 
 ## Owners
 
