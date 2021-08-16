@@ -1,4 +1,4 @@
-const User = require('../users/users-model')
+// const User = require('../users/users-model')
 
 //checks if user is renter
 function checkIfRenter(req, res, next) {

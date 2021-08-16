@@ -11,7 +11,7 @@ function checkIfOwner(req, res, next) {
     }
 }
 
-//mw checks to make sure the owner id is valid
+//checks to make sure the owner id is valid
 function validateOwnerId(req, res, next) {
     User.findById(req.params.id)
       .then(user => {
